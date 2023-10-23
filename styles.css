@@ -1,170 +1,490 @@
-* {
-    padding: 0;
-    margin: 0;
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap');
+
+*{
     box-sizing: border-box;
-  }
-  
-  body {
-    font-family: "Inter", sans-serif;
-    background-color: #1a1a1a;
-    color: #fff;
-  }
-  
-  main {
-    width: 60%;
-    margin: auto;
-    padding: 20px 0 0 0;
-  }
-  
-  main input {
-    width: 100%;
-    padding: 12px;
-    font-size: 34px;
-    box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    border: 1px solid #444;
-    margin-bottom: 20px;
-    background-color: #333;
-    color: #fff;
-  }
-  
-  section {
-    position: fixed;
-    box-shadow: -6px -2px 25px -13px rgba(0, 0, 0, 0.4);
-    width: 340px;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+}
+
+body{
+    background-color: #fff59d;
+    min-width: 400px;
+}
+
+.header{
+    background-color: #1b3039;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 85px;
+    padding: 5px 10%;
+}
+
+.header .logo{
+    cursor: pointer;
+    margin-right: auto;
+}
+
+.header .logo img{
+    height: 70px;
+    width: auto;
+    transition: all 0.3s;
+}
+
+.header .logo img:hover{
+    transform: scale(1.2);
+}
+
+.header .nav-links{
+    list-style: none;
+}
+
+.header .nav-links li{
+    display: inline-block;
+    padding: 0 20px;    
+}
+
+.header .nav-links li:hover,
+/**/.overlay a:hover{
+    transform: scale(1.1);
+}
+
+.header .nav-links a{
+    font-size: 700;
+    color: #eceff1; 
+}
+
+.header .nav-links a:hover{
+    color: #ffbc0e;
+}
+
+/**/.menu {
+    display:none;
+}
+
+.header .btn button,
+/**/.header .menu button{
+    margin-left: 20px;
+    font-weight: 700;
+    color: #1b3039;
+    padding: 9px 25px;
+    background: #eceff1;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.header .btn button:hover,
+/**/.header .menu button:hover{
+    background-color: #e2f1f8;
+    color: #ffbc0e;
+    transform: scale(1.1);
+}
+
+
+/**/@media screen and (max-width: 800px){
+    .nav-links, .btn {
+        display: none;
+    }
+    .menu {
+        display: inherit;
+    }
+}
+
+
+
+/*Nav Mobile*/
+
+.header a{
+    text-decoration: none;  
+    /*borramos el que teniamos en .header .nav-links a*/ 
+}
+
+.header .overlay {
     height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    left: 0;
     top: 0;
-    right: 0;
-    padding: 30px;
-    transition: all 0.2s;
-    background-color: #333;
-  }
-  
-  section h1 {
+    background-color: rgba(33, 49, 63, .95);
+    overflow: hidden;
+    transition: all 0.3s ease 0s;
+}
+
+.header .overlay .overlay-content{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;    
+}
+
+.header .overlay a{
+    padding: 15px;
+    font-size: 36px;
+    display: block;
+    transition: all 0.3s ease 0s;
+    font-weight: 700;
+    color: #eceff1;
+}
+
+.header .overlay a:hover, 
+.header .overlay a:focus{
+    color: #ffbc0e;
+}
+
+.header .overlay .close{
     position: absolute;
     top: 20px;
-    right: 360px;
-    display: block;
-    width: 50px;
-    height: 50px;
-    border-radius: 10px;
-    cursor: pointer;
-    color: #fff;
-    box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.4);
-    background: url("img/carrito.png") no-repeat #007bff;
-    background-size: 60%;
-    background-position: 9px center;
+    right: 45px;
+    font-size: 65px;
+}
+
+@media screen and (max-height:450px) {
+    .header .overlay a{
+        font-size: 20px;
+    }
+    .header .overlay .close{
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}
+
+/*:::::Pie de Pagina*/
+.pie-pagina{
+  width: 100%;
+  background-color: #070f16;
+}
+.pie-pagina .grupo-1{
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap:50px;
+  padding: 45px 0px;
+}
+.pie-pagina .grupo-1 .box figure{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pie-pagina .grupo-1 .box figure img{
+  width: 250px;
+}
+.pie-pagina .grupo-1 .box h2{
+  color: #fff;
+  margin-bottom: 25px;
+  font-size: 20px;
+}
+.pie-pagina .grupo-1 .box p{
+  color: #efefef;
+  margin-bottom: 10px;
+}
+.pie-pagina .grupo-1 .red-social a{
+  display: inline-block;
+  text-decoration: none;
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  color: #fff;
+  margin-right: 10px;
+  background-color: #0d2033;
+  text-align: center;
+  transition: all 300ms ease;
+}
+.pie-pagina .grupo-1 .red-social a:hover{
+  color: aqua;
+}
+.pie-pagina .grupo-2{
+  background-color: #0a1a2a;
+  padding: 15px 10px;
+  text-align: center;
+  color: #fff;
+}
+.pie-pagina .grupo-2 small{
+  font-size: 15px;
+}
+@media screen and (max-width:800px){
+  .pie-pagina .grupo-1{
+      width: 90%;
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap:30px;
+      padding: 35px 0px;
   }
-  
-  section h1 span {
-    display: block;
-    background-color: #d15280;
-    border-radius: 150px;
-    padding: 5px;
-    width: 30px;
-    text-align: center;
-    font-size: 14px;
-    margin: -10px 0 0 30px;
-  }
-  
-  section h3 {
-    padding-top: 10px;
-    text-align: center;
-    font-size: 30px;
-    color: #007bff;
-  }
-  
-  .btnAgregar,
-  .btnQuitar,
-  .boton {
-    color: #fff;
-    background-color: #007bff;
-    text-decoration: none;
-    display: inline-block;
-    padding: 10px;
-    border-radius: 10px;
-    margin: 10px 0;
-    border: 1px solid #007bff;
-    transition: all 0.2s;
-  }
-  
-  .btnAgregar:hover,
-  .btnQuitar:hover,
-  .boton:hover {
-    border: 1px solid #fff;
-    transform: scale(1.05);
-  }
-  
-  .productoCarrito {
-    border-bottom: 2px dashed rgba(255, 255, 255, 0.2);
-    padding: 10px 0;
-    margin-bottom: 10px;
-    line-height: 24px;
-  }
-  
-  .productoCarrito h2 {
-    margin-bottom: 8px;
-    color: #fff;
-  }
-  
-  .ocultar {
-    right: -340px;
-    transition: all 0.2s;
-  }
-  
-  #productos {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-    height: auto;
-  }
-  
-  .producto {
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 10px;
-    padding: 10px;
-    background-color: #333;
-    text-align: center;
-    transition: all 0.2s;
-  }
-  
-  .producto .precio {
-    padding: 10px 0;
-    font-size: 20px;
-    background-color: #555;
-    display: inline-block;
-    padding: 4px 10px;
-    color: #fff;
-    border-radius: 10px;
-    margin-top: 4px;
-  }
-  
-  .producto .imagen {
-    display: flex;
-    justify-content: center;
-    min-height: 100px;
-    margin: 20px 0;
-  }
-  
-  .producto .imagen img {
-    max-height: 100px;
-  }
-  
-  .producto .btnAgregar,
-  .producto .boton {
-    margin: auto;
-    display: block;
-    text-align: center;
-  }
-  
-  .producto:hover {
-    border: 1px solid #fff;
-    box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.4);
-  }
-  
-  #scroll {
-    max-height: 96%;
-    overflow-y: auto;
-    padding-left: 5px;
-  }
+}
+.redes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  margin: 5px;
+}
+
+.up {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+}
+
+.down {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+}
+
+.card1 {
+  width: 90px;
+  height: 90px;
+  outline: none;
+  border: none;
+  background: white;
+  border-radius: 90px 5px 5px 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: .2s ease-in-out;
+}
+
+.instagram {
+  margin-top: 1.5em;
+  margin-left: 1.2em;
+  fill: #cc39a4;
+}
+
+.card2 {
+  width: 90px;
+  height: 90px;
+  outline: none;
+  border: none;
+  background: white;
+  border-radius: 5px 90px 5px 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: .2s ease-in-out;
+}
+
+.twitter {
+  margin-top: 1.5em;
+  margin-left: -.9em;
+  fill: #03A9F4;
+}
+
+.card3 {
+  width: 90px;
+  height: 90px;
+  outline: none;
+  border: none;
+  background: white;
+  border-radius: 5px 5px 5px 90px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: .2s ease-in-out;
+}
+
+.github {
+  margin-top: -.6em;
+  margin-left: 1.2em;
+}
+
+.card4 {
+  width: 90px;
+  height: 90px;
+  outline: none;
+  border: none;
+  background: white;
+  border-radius: 5px 5px 90px 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: .2s ease-in-out;
+}
+
+.discord {
+  margin-top: -.9em;
+  margin-left: -1.2em;
+  fill: #8c9eff;
+}
+
+.card1:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: #cc39a4;
+}
+
+.card1:hover .instagram {
+  fill: white;
+}
+
+.card2:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: #03A9F4;
+}
+
+.card2:hover .twitter {
+  fill: white;
+}
+
+.card3:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: black;
+}
+
+.card3:hover .github {
+  fill: white;
+}
+
+.card4:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: #8c9eff;
+}
+
+.card4:hover .discord {
+  fill: white;
+}
+
+/*:::::PRODUCTOS*/
+
+.conteiner {
+  width: 60%;
+  margin: auto;
+  padding: 20px 0 0 0;
+}
+.conteiner input {
+  width: 100%;
+  padding: 12px;
+  font-size: 34px;
+  box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  border: 1px solid black;
+  font-weight: 100;
+  margin-bottom: 20px;
+}
+section {
+  position: fixed;
+  box-shadow: -6px -2px 25px -13px rgba(0, 0, 0, 0.15);
+  width: 340px;
+  height: 100%;
+  top: 0;
+  right: 0;
+  padding: 30px;
+  transition: all 0.2s;
+  background-color: white;
+}
+section h1 {
+  position: absolute;
+  top: 20px;
+  right: 360px;
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.2);
+  background: url("img/carrito.png") no-repeat #244ced;
+  background-size: 60%;
+  background-position: 9px center;
+}
+section h1 span {
+  display: block;
+  background-color: #d15280;
+  border-radius: 150px;
+  padding: 5px;
+  width: 30px;
+  text-align: center;
+  font-size: 14px;
+  margin: -10px 0 0 30px;
+}
+section h3 {
+  padding-top: 10px;
+  text-align: center;
+  font-size: 30px;
+}
+.btnAgregar,
+.btnQuitar,
+.boton {
+  color: white;
+  background-color: #244ced;
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px 0;
+  border: 1px solid #244ced;
+  transition: all 0.2s;
+}
+.btnAgregar:hover,
+.btnQuitar:hover,
+.boton:hover {
+  border: 1px solid white;
+  scale: 1.05;
+}
+.productoCarrito {
+  border-bottom: 2px dashed rgba(0, 0, 0, 0.2);
+  padding: 10px 0;
+  margin-bottom: 10px;
+  line-height: 24px;
+}
+.productoCarrito h2 {
+  margin-bottom: 8px;
+}
+.ocultar {
+  right: -340px;
+  transition: all 0.2s;
+}
+#productos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  height: auto;
+}
+.producto {
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  padding: 10px;
+  background-color: white;
+  text-align: center;
+}
+.producto .precio {
+  padding: 10px 0;
+  font-size: 20px;
+  background-color: gray;
+  display: inline-block;
+  padding: 4px 10px;
+  color: white;
+  border-radius: 10px;
+  margin-top: 4px;
+}
+.producto .imagen {
+  display: flex;
+  justify-content: center;
+  min-height: 100px;
+  margin: 20px 0;
+}
+.producto .imagen img {
+  max-height: 100px;
+}
+.producto .btnAgregar,
+.producto .boton {
+  margin: auto;
+  display: block;
+  text-align: center;
+}
+.producto:hover {
+  border: 1px solid black;
+  box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.2);
+}
+#scroll {
+  max-height: 96%;
+  overflow-y: auto;
+  padding-left: 5px;
+}
+.carrouselimg{
+  width: 100%;
+  height: auto;
+}

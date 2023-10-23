@@ -17,10 +17,12 @@ class BaseDeDatos {
     // Array para el catálogo
     this.productos = [];
     // Empezar a cargar productos
-    this.agregarRegistro(1, "Iphone 15", 1500, "Tecnología", "iphone15.jpg");
-    this.agregarRegistro(2, "Iphone 14", 1200, "Tecnología", "iphone14.jpg");
-    this.agregarRegistro(3, "Iphone 13", 1000, "Tecnología", "iphone13.jpg");
-    this.agregarRegistro(4, "Iphone 12", 850, "Tecnología", "iphone12.jpg");
+    this.agregarRegistro(1, "Proteina Body Advance", 9700, "Alimentos", "Proteinabodyadvance.jpg");
+      this.agregarRegistro(2, "Creatina Star Nutrition", 12000, "Alimentos", "creatinastar.jpg");
+      this.agregarRegistro(3, "Pre Entreno Nutrilab Energy", 7700, "Alimentos", "preentrenonutrilab.jpg");
+      this.agregarRegistro(4, "Proteina Whey Chocolate", 9000, "Alimentos", "wheyproteina.jpg");
+      this.agregarRegistro(5, "Ganador De Masa Nutrilab", 8500, "Alimentos", "massbuilder.jpg");
+      this.agregarRegistro(6, "Shakers Gold Nutrition", 3500, "Productos", "shakers.jpg");
   }
 
   // Método que crea el objeto producto y lo almacena en el catálogo (array)
@@ -207,4 +209,31 @@ inputBuscar.addEventListener("input", (event) => {
 // Toggle para ocultar/mostrar el carrito
 botonCarrito.addEventListener("click", (event) => {
   document.querySelector("section").classList.toggle("ocultar");
+});
+
+
+// NAVBAR
+
+function openNav(){
+  document.getElementById("mobile-menu").style.width = "100%";
+}
+
+function closeNav(){
+  document.getElementById("mobile-menu").style.width = "0%";
+}
+
+const sobreNosotrosLink = document.getElementById('sobreNosotrosLink');
+
+// Agregamos un evento de clic al enlace usando JavaScript
+sobreNosotrosLink.addEventListener('click', function(event) {
+    // Evitamos el comportamiento predeterminado del enlace (evitar que recargue la página)
+    event.preventDefault();
+    
+    // Mostramos un SweetAlert2 cuando se hace clic en "Sobre Nosotros"
+    Swal.fire({
+        icon: 'info',
+        title: '@demonbum.ar (Instagram)',
+        text: 'Venta Minorista y Mayorista de Suplementos',
+        confirmButtonText: 'Entendido'
+    });
 });
