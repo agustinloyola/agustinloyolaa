@@ -1,0 +1,44 @@
+[
+    {
+       "id": 1, 
+       "nombre": "Proteina Body Advance", 
+       "precio": 9700,
+       "categoria": "Proteina",
+       "imagen": "Proteinabodyadvance.jpg"
+    },
+    {
+        "id": 2, 
+        "nombre": "Creatina Star Nutrition",
+        "precio": 12000,
+        "categoria": "Creatina",
+        "imagen": "creatinastar.jpg"
+     },
+     {
+        "id": 3, 
+        "nombre": "Pre Entreno Nutrilab Energy",
+        "precio": 7700,
+        "categoria": "Preentreno",
+        "imagen": "preentrenonutrilab.jpg"
+     },
+     {
+        "id": 4, 
+        "nombre": "Proteina Whey Chocolate", 
+        "precio": 9000,
+        "categoria": "Proteina",
+        "imagen": "wheyproteina.jpg"
+     },
+     {
+        "id": 5, 
+        "nombre": "Ganador De Masa Nutrilab", 
+        "precio": 8500,
+        "categoria": "Massbuilder",
+        "imagen": "massbuilder.jpg"
+     },
+     {
+        "id": 6, 
+        "nombre": "Shakers Gold Nutrition", 
+        "precio": 3500,
+        "categoria": "Productos",
+        "imagen": "shakers.jpg"
+     }
+]

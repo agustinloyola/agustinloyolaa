@@ -16,20 +16,16 @@ class BaseDeDatos {
   constructor() {
     // Array para el catálogo
     this.productos = [];
-    // Empezar a cargar productos
-    this.agregarRegistro(1, "Proteina Body Advance", 9700, "Alimentos", "Proteinabodyadvance.jpg");
-      this.agregarRegistro(2, "Creatina Star Nutrition", 12000, "Alimentos", "creatinastar.jpg");
-      this.agregarRegistro(3, "Pre Entreno Nutrilab Energy", 7700, "Alimentos", "preentrenonutrilab.jpg");
-      this.agregarRegistro(4, "Proteina Whey Chocolate", 9000, "Alimentos", "wheyproteina.jpg");
-      this.agregarRegistro(5, "Ganador De Masa Nutrilab", 8500, "Alimentos", "massbuilder.jpg");
-      this.agregarRegistro(6, "Shakers Gold Nutrition", 3500, "Productos", "shakers.jpg");
+    //
+    this.cargarRegistros();
   }
-
-  // Método que crea el objeto producto y lo almacena en el catálogo (array)
-  agregarRegistro(id, nombre, precio, categoria, imagen) {
-    const producto = new Producto(id, nombre, precio, categoria, imagen);
-    this.productos.push(producto);
+  async cargarRegistros(){
+    const resultado = await fetch ("/json/productos.json");
+    this.productos = await resultado.json();
+    cargarProductos(this.productos);
+    
   }
+  
 
   // Nos devuelve todo el catálogo de productos
   traerRegistros() {
@@ -104,6 +100,15 @@ class Carrito {
     this.listar();
   }
 
+  // Vaciar el carrito
+  vaciar() {
+    this.total = 0;
+    this.cantidadProductos = 0;
+    this.carrito = [];
+    localStorage.setItem("carrito", JSON.stringify(this.carrito));
+    this.listar();
+  }
+
   // Renderiza todos los productos en el HTML
   listar() {
     // Reiniciamos variables
@@ -124,6 +129,14 @@ class Carrito {
       this.total += producto.precio * producto.cantidad;
       this.cantidadProductos += producto.cantidad;
     }
+    if (this.cantidadProductos > 0){
+      // Boton comprar visible
+      botonComprar.style = "block";
+    }else{
+      // Boton comprar invisible
+      botonComprar.style.display = "none";
+    }
+    
     // Como no se cuantos productos tengo en el carrito, debo
     // asignarle los eventos de forma dinámica a cada uno
     // Primero hago una lista de todos los botones con .querySelectorAll
@@ -154,6 +167,7 @@ const divProductos = document.querySelector("#productos");
 const divCarrito = document.querySelector("#carrito");
 const inputBuscar = document.querySelector("#inputBuscar");
 const botonCarrito = document.querySelector("section h1");
+const botonComprar = document.querySelector("#botonComprar");
 
 // Instaciamos la clase Carrito
 const carrito = new Carrito();
@@ -209,6 +223,29 @@ inputBuscar.addEventListener("input", (event) => {
 // Toggle para ocultar/mostrar el carrito
 botonCarrito.addEventListener("click", (event) => {
   document.querySelector("section").classList.toggle("ocultar");
+});
+
+// Botón comprar
+botonComprar.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  Swal.fire({
+    title: "¿Seguro que desea comprar los productos?",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonText: "Sí, seguro",
+    cancelButtonText: "No, no quiero",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      carrito.vaciar();
+      Swal.fire({
+        title: "¡Compra realizada!",
+        icon: "success",
+        text: "Su compra fue realizada con éxito.",
+        timer: 1500,
+      });
+    }
+  });
 });
 
 
